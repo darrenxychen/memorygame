@@ -10,6 +10,14 @@ const cards = [
 ]
 
 function App() {
+
+  const shuffleCards = () => {
+    const shuffledCards = [...cards, ...cards]
+      .sort(() => Math.random() - 0.5)
+      .map((card) => ({ ...card, id: Math.random() }));
+  }
+
+
   return (
     <div className="App">
       <h1>Memory Game</h1>
