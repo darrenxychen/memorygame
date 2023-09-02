@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css';
 
 const cards = [
@@ -10,11 +11,15 @@ const cards = [
 ]
 
 function App() {
+  const [cards, setCards] = useState(cards);
 
+  //shuffle cards
   const shuffleCards = () => {
     const shuffledCards = [...cards, ...cards]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
+
+    setCards(shuffledCards);
   }
 
 
