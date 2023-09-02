@@ -11,7 +11,8 @@ const cards = [
 ]
 
 function App() {
-  const [cards, setCards] = useState(cards);
+  const [cards, setCards] = useState([]);
+  const [turns, setTurns] = useState(0);
 
   //shuffle cards
   const shuffleCards = () => {
@@ -20,13 +21,15 @@ function App() {
       .map((card) => ({ ...card, id: Math.random() }));
 
     setCards(shuffledCards);
+    setTurns(0);
   }
 
+  console.log(cards, turns);
 
   return (
     <div className="App">
       <h1>Memory Game</h1>
-      <button>New Game</button>
+      <button onClick={shuffleCards}>New Game</button>
     </div>
   );
 }
