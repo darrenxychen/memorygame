@@ -2,12 +2,12 @@ import { useState } from 'react';
 import './App.css';
 
 const cards = [
-  { id: 1, name: 'Card 1' },
-  { id: 2, name: 'Card 2' },
-  { id: 3, name: 'Card 3' },
-  { id: 4, name: 'Card 4' },
-  { id: 5, name: 'Card 5' },
-  { id: 6, name: 'Card 6' },
+  { "src": "/img/helmet-1.png" },
+  { "src": "/img/potion-1.png" },
+  { "src": "/img/ring-1.png" },
+  { "src": "/img/scroll-1.png" },
+  { "src": "/img/shield-1.png" },
+  { "src": "/img/sword-1.png" }
 ]
 
 function App() {
