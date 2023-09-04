@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-const cards = [
+const cardImages = [
   { "src": "/img/helmet-1.png" },
   { "src": "/img/potion-1.png" },
   { "src": "/img/ring-1.png" },
@@ -16,7 +16,7 @@ function App() {
 
   //shuffle cards
   const shuffleCards = () => {
-    const shuffledCards = [...cards, ...cards]
+    const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
 
