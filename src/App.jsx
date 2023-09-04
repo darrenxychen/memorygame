@@ -29,7 +29,9 @@ function App() {
 
   //handle a choice
   const handleChoice = (card) => {
-    console.log(card);
+    //if choiceOne is null, set choiceOne to card
+    //else set choiceTwo to card
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
 
   }
 
