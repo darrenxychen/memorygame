@@ -18,3 +18,11 @@ button:hover {
   background: #c23866;
   color: white;
 }
+
+.card-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* fr = fraction */
+  grid-gap: 20px;
+}
