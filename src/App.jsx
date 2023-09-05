@@ -50,14 +50,12 @@ function App() {
             else {
               return card;
             }
-
           })
         })
         resetTurn();
       }
       //if the two cards do not match
       else {
-        console.log('no match');
         resetTurn();
       }
     }
@@ -77,7 +75,7 @@ function App() {
 
       <div className="card-grid">
         {cards.map(card => (
-          <SingleCard key={card.id} card={card} handleChoice={handleChoice} />
+          <SingleCard key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} />
         ))}
       </div>
     </div>
