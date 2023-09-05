@@ -37,10 +37,25 @@ function App() {
   //compare the two selected cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      //if the two cards match, set matched to true
       if (choiceOne.src === choiceTwo.src) {
-        console.log('match');
+        setCards(prevCards => {
+          //returns a new array of cards
+          //map method returns a new array based on the previous array (prevCards)
+          return prevCards.map(card => {
+            if (card.src === choiceOne.src) {
+              //returns new card object with matched set to true
+              return { ...card, matched: true };
+            }
+            else {
+              return card;
+            }
+
+          })
+        })
         resetTurn();
       }
+      //if the two cards do not match
       else {
         console.log('no match');
         resetTurn();
