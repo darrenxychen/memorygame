@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 
@@ -32,7 +32,16 @@ function App() {
     //if choiceOne is null, set choiceOne to card
     //else set choiceTwo to card
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+  }
 
+  //compare the two selected cards
+  useEffect(() => { }, [choiceOne, choiceTwo]);
+
+  // reset the choices and then increase a turn
+  const resetTurn = () => {
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns(prevTurns => prevTurns + 1);
   }
 
   return (
