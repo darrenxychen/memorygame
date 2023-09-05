@@ -1,4 +1,5 @@
 .card {
+  /* sits on top of the back of the card */
   position: relative;
 }
 
@@ -9,6 +10,7 @@
   border-radius: 6px;
 }
 
+/* styling for front of the card */
 .card .front {
   transform: rotateY(90deg);
   position: absolute;

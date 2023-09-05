@@ -56,7 +56,7 @@ function App() {
       }
       //if the two cards do not match
       else {
-        resetTurn();
+        setTimeout(() => resetTurn(), 1000);
       }
     }
   }, [choiceOne, choiceTwo]);
