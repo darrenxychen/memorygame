@@ -35,7 +35,18 @@ function App() {
   }
 
   //compare the two selected cards
-  useEffect(() => { }, [choiceOne, choiceTwo]);
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        console.log('match');
+        resetTurn();
+      }
+      else {
+        console.log('no match');
+        resetTurn();
+      }
+    }
+  }, [choiceOne, choiceTwo]);
 
   // reset the choices and then increase a turn
   const resetTurn = () => {
