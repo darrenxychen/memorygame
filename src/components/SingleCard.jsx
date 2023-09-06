@@ -1,9 +1,12 @@
 import './SingleCard.css'
 
-export default function SingleCard({ card, handleChoice, flipped }) {
+export default function SingleCard({ card, handleChoice, flipped, disabled }) {
 
   const handleClick = () => {
-    handleChoice(card);
+    if (!disabled) {
+      handleChoice(card);
+    }
+
   }
 
   return (
@@ -15,3 +18,6 @@ export default function SingleCard({ card, handleChoice, flipped }) {
     </div>
   )
 }
+
+// Work on leaderboard
+// Add levels of difficulty
