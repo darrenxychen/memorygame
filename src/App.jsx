@@ -75,6 +75,7 @@ function App() {
   return (
     <div className="App">
       <h1>Memory Game</h1>
+      <p>Turns: {turns}</p>
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
@@ -82,6 +83,7 @@ function App() {
           <SingleCard key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
         ))}
       </div>
+
     </div>
   );
 }
