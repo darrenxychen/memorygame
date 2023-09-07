@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function Timer() {
 
   const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(true);
+  const [running, setRunning] = useState(false);
 
   const timer = useRef();
 
@@ -13,6 +13,7 @@ export default function Timer() {
         setTime(pre => pre + 1)
       }, 1000)
     }
+    return () => clearInterval(timer.current);
   }, [running]);
 
   return (
@@ -31,15 +32,11 @@ export default function Timer() {
 }
 
 const format = (time) => {
-  let hours = Math.floor(time / 60 / 60 % 24);
   let minutes = Math.floor(time / 60 % 60);
   let seconds = Math.floor(time % 60);
-  let milliseconds = Math.floor(time * 1000 % 1000);
 
-  hours = hours < 10 ? `0${hours}` : hours;
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-  seconds = seconds < 10 ? `0${seconds}` : seconds;
-  milliseconds = milliseconds < 10 ? `0${milliseconds}` : milliseconds;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  seconds = seconds < 10 ? '0' + seconds : seconds;
 
-  return `${hours}:${minutes}:${seconds}:${milliseconds}`;
+  return minutes + ":" + seconds;
 }
