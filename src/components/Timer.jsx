@@ -1,19 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function Timer() {
 
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(true);
 
+  const timer = useRef();
+
+  useEffect(() => {
+    if (running) {
+      timer.current = setInterval(() => {
+        setTime(pre => pre + 1)
+      }, 1000)
+    }
+  }, [running]);
+
   return (
     <div className="stopwatch">
-      <p className="timer">
-        <div className="actions">
-          <button className="button" id="start">Start</button>
-          <button className="button" id="stop">Stop</button>
-          <button className="button" id="reset">Reset</button>
-        </div>
-      </p>
+      <p className="timer">{format(time)}</p>
+      <div className="actions">
+        <button onClick={() => {
+          if (running) clearInterval(timer.current);
+          setRunning(!running);
+        }}>{running ? 'Stop' : 'Resume'}</button>
+        <button className="button" onClick={() => setTime(0)}>Restart</button>
+      </div>
+
     </div>
   )
 }
