@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
+import Timer from './components/Timer';
 
 const cardImages = [
   { "src": "/img/helmet-1.png", matched: false },
@@ -75,6 +76,7 @@ function App() {
   return (
     <div className="App">
       <h1>Memory Game</h1>
+      <Timer />
       <p>Turns: {turns}</p>
       <button onClick={shuffleCards}>New Game</button>
 
