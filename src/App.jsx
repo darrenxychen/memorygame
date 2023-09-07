@@ -18,6 +18,7 @@ function App() {
   const [choiceOne, setChoiceOne] = useState(null);
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const [matchedCount, setMatchedCount] = useState(0);
 
   //shuffle cards
   const shuffleCards = () => {
@@ -43,6 +44,8 @@ function App() {
       setDisabled(true);
       //if the two cards match, set matched to true
       if (choiceOne.src === choiceTwo.src) {
+        setMatchedCount(matchedCount + 1);
+
         setCards(prevCards => {
           //returns a new array of cards
           //map method returns a new array based on the previous array (prevCards)
@@ -64,6 +67,16 @@ function App() {
       }
     }
   }, [choiceOne, choiceTwo]);
+
+  //check if the game is over
+  useEffect(() => {
+    if (matchedCount === cardImages.length) {
+      setTimeout(() => {
+        alert(`You won in ${turns} turns!`);
+      }, 1000);
+
+    }
+  }, [matchedCount, turns]);
 
   // reset the choices and then increase a turn
   const resetTurn = () => {
