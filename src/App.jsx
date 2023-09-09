@@ -89,8 +89,9 @@ function App() {
   return (
     <div className="App">
       <h1>Memory Game</h1>
-      <Timer />
       <p>Turns: {turns}</p>
+      <Timer />
+      <br />
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
