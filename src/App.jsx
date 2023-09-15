@@ -20,6 +20,10 @@ function App() {
   const [disabled, setDisabled] = useState(false);
   const [matchedCount, setMatchedCount] = useState(0);
 
+  const startTimer = () => {
+    setRunning(true);
+  }
+
   //shuffle cards
   const shuffleCards = () => {
     const shuffledCards = [...cardImages, ...cardImages]
