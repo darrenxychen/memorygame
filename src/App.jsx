@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 import Timer from './components/Timer';
+import Modal from './components/Modal';
 
 const cardImages = [
   { "src": "/img/helmet-1.png", matched: false },
@@ -98,6 +99,7 @@ function App() {
       <br />
       <button>modal test</button>
       <br />
+      <Modal />
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
