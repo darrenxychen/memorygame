@@ -96,6 +96,8 @@ function App() {
       <p>Turns: {turns}</p>
       <Timer />
       <br />
+      <button>modal test</button>
+      <br />
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
