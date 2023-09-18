@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 
 export default function Timer({ startTimer }) {
   const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(false);
+  const [running, setRunning] = useState(true);
   const timer = useRef();
 
   useEffect(() => {

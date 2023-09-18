@@ -1,0 +1,24 @@
+.submit-btn {
+  background: green;
+  color: white;
+  border: none;
+  font-weight: normal;
+}
+
+.submit-btn:hover {
+  background: #00bb83;
+  color: white;
+}
+
+.x-btn {
+  display: flex;
+  flex-direction: row-reverse;
+  background: red;
+  color: white;
+  border: none;
+  font-weight: normal;
+}
+
+.x-btn:hover {
+  background: rgb(197, 0, 0);
+}

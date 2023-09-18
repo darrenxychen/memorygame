@@ -20,10 +20,8 @@ function App() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [matchedCount, setMatchedCount] = useState(0);
-
-  const startTimer = () => {
-    setRunning(true);
-  }
+  const [clickedStart, setClickedStart] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   //shuffle cards
   const shuffleCards = () => {
@@ -33,6 +31,7 @@ function App() {
 
     setCards(shuffledCards);
     setTurns(0);
+    setClickedStart(true);
   }
 
   //handle a choice
@@ -95,11 +94,11 @@ function App() {
     <div className="App">
       <h1>Memory Game</h1>
       <p>Turns: {turns}</p>
-      <Timer />
+      {clickedStart && <Timer />}
       <br />
-      <button>modal test</button>
+      <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button>
       <br />
-      <Modal />
+      {openModal && <Modal />}
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
@@ -108,7 +107,7 @@ function App() {
         ))}
       </div>
 
-    </div>
+    </div >
   );
 }
 
