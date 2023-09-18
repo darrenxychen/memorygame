@@ -15,6 +15,7 @@ function Modal({ closeModal }) {
           <p>
             You won in 10 turns!
           </p>
+          <input className="name-form" type="text" placeholder="Name" maxLength={10} />
         </div>
 
         <div className="footer">

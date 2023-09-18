@@ -15,11 +15,6 @@ button {
   transition: all ease-in 0.15s;
 }
 
-button:hover {
-  background: #575757;
-  color: white;
-}
-
 .card-grid {
   margin-top: 40px;
   display: grid;

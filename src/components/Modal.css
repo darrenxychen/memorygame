@@ -24,15 +24,15 @@
 
 .x-btn {
   display: flex;
-  flex-direction: row-reverse;
-  background: red;
+  justify-content: flex-end;
   color: white;
   border: none;
   font-weight: normal;
+
 }
 
 .x-btn:hover {
-  background: rgb(197, 0, 0);
+  color: rgb(180, 180, 180);
 }
 
 .modal-background {
@@ -53,4 +53,26 @@
   display: flex;
   flex-direction: column;
   padding: 25px;
+}
+
+.modal-container .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-container .body {
+  flex: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+
+}
+
+.modal-container .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
