@@ -1,12 +1,24 @@
 .submit-btn {
-  background: green;
+  background: rgb(0, 243, 0);
   color: white;
   border: none;
   font-weight: normal;
 }
 
 .submit-btn:hover {
-  background: #00bb83;
+  background: #009468;
+  color: white;
+}
+
+.cancel-btn {
+  background: red;
+  color: white;
+  border: none;
+  font-weight: normal;
+}
+
+.cancel-btn:hover {
+  background: #bb0000;
   color: white;
 }
 

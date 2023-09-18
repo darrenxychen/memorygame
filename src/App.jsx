@@ -98,7 +98,7 @@ function App() {
       <br />
       <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button>
       <br />
-      {openModal && <Modal />}
+      {openModal && <Modal closeModal={setOpenModal} />}
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">

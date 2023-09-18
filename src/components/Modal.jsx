@@ -1,10 +1,10 @@
 import "./Modal.css";
 
-function Modal() {
+function Modal({ closeModal }) {
   return (
     <div className="modal-background">
       <div className="modal-container">
-        <button className="x-btn"> X </button>
+        <button className="x-btn" onClick={() => closeModal(false)}> X </button>
         <div className="title">
           <h1>You won!</h1>
         </div>
@@ -15,6 +15,7 @@ function Modal() {
         </div>
 
         <div className="footer">
+          <button className="cancel-btn" onClick={() => closeModal(false)}>cancel</button>
           <button className="submit-btn">submit</button>
         </div>
       </div>
