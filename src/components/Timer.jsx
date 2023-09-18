@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-export default function Timer({ startTimer }) {
+export default function Timer() {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(true);
   const timer = useRef();
@@ -15,12 +15,6 @@ export default function Timer({ startTimer }) {
     return () => clearInterval(timer.current);
   }, [running]);
 
-  // Call the startTimer function when the component mounts to start the timer.
-  useEffect(() => {
-    if (startTimer) {
-      startTimer(() => setRunning(true));
-    }
-  }, [startTimer]);
 
   return (
     <div className="stopwatch">
@@ -37,9 +31,6 @@ export default function Timer({ startTimer }) {
           }}
         >
           {running ? 'Stop' : 'Resume'}
-        </button>
-        <button className="button" onClick={() => setTime(0)}>
-          Restart
         </button>
       </div>
     </div>

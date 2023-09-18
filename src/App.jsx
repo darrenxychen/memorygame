@@ -77,6 +77,7 @@ function App() {
     if (matchedCount === cardImages.length) {
       setTimeout(() => {
         alert(`You won in ${turns} turns!`);
+        setOpenModal(true);
       }, 1000);
 
     }
