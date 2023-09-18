@@ -4,7 +4,10 @@ function Modal({ closeModal }) {
   return (
     <div className="modal-background">
       <div className="modal-container">
-        <button className="x-btn" onClick={() => closeModal(false)}> X </button>
+        <div className="title-close-btn">
+          <button className="x-btn" onClick={() => closeModal(false)}> X </button>
+        </div>
+
         <div className="title">
           <h1>You won!</h1>
         </div>
