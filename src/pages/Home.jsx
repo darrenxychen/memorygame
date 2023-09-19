@@ -4,14 +4,14 @@ import Timer from '../components/Timer';
 import Modal from '../components/Modal';
 
 const cardImages = [
-  { "src": "/img/helmet-1.png", matched: false },
-  { "src": "/img/potion-1.png", matched: false },
-  { "src": "/img/ring-1.png", matched: false },
-  { "src": "/img/scroll-1.png", matched: false },
-  { "src": "/img/shield-1.png", matched: false },
-  { "src": "/img/sword-1.png", matched: false },
-  { "src": "/img/axe-1.jpeg", matched: false },
-  { "src": "/img/fortnite-1.jpg", matched: false }
+  { "src": "/img/helmet-1.png", matched: false }
+  // { "src": "/img/potion-1.png", matched: false },
+  // { "src": "/img/ring-1.png", matched: false },
+  // { "src": "/img/scroll-1.png", matched: false },
+  // { "src": "/img/shield-1.png", matched: false },
+  // { "src": "/img/sword-1.png", matched: false },
+  // { "src": "/img/axe-1.jpeg", matched: false },
+  // { "src": "/img/fortnite-1.jpg", matched: false }
 ]
 
 function Home() {
@@ -24,8 +24,13 @@ function Home() {
   const [clickedStart, setClickedStart] = useState(false);
   const [openModal, setOpenModal] = useState(false);
 
+  let gameOverTimeout;
+
   //shuffle cards
   const shuffleCards = () => {
+
+    clearTimeout(gameOverTimeout);
+
     const shuffledCards = [...cardImages, ...cardImages]
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }));
@@ -33,6 +38,7 @@ function Home() {
     setCards(shuffledCards);
     setTurns(0);
     setClickedStart(true);
+    setOpenModal(false);
   }
 
   //handle a choice
@@ -76,12 +82,14 @@ function Home() {
   //check if the game is over
   useEffect(() => {
     if (matchedCount === cardImages.length) {
-      setTimeout(() => {
-        alert(`You won in ${turns} turns!`);
+      gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
-      }, 1000);
-
+        console.log('game over');
+      }, 600);
     }
+
+    // Clear the timeout when the component unmounts or when a new game starts
+    return () => clearTimeout(gameOverTimeout);
   }, [matchedCount, turns]);
 
   // reset the choices and then increase a turn
@@ -100,7 +108,7 @@ function Home() {
       <br />
       <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button>
       <br />
-      {openModal && <Modal closeModal={setOpenModal} />}
+      {openModal && <Modal closeModal={(setOpenModal)} />}
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
