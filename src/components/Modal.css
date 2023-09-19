@@ -3,22 +3,14 @@
   color: white;
   border: none;
   font-weight: normal;
+  font-size: 0.95rem;
+  height: 40px;
+  width: 80px;
+  transition: ease-in-out 0.15s;
 }
 
 .submit-btn:hover {
-  background: #009468;
-  color: white;
-}
-
-.cancel-btn {
-  background: red;
-  color: white;
-  border: none;
-  font-weight: normal;
-}
-
-.cancel-btn:hover {
-  background: #bb0000;
+  background: #00c086;
   color: white;
 }
 
@@ -75,6 +67,24 @@
 .modal-container .footer {
   flex: 20%;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+}
+
+.name-form {
+  height: 35px;
+  width: 60%;
+  border-radius: 10px;
+  border: 2px solid rgb(95, 95, 95);
+  padding: 3px 10px;
+}
+
+.name-form:focus {
+  outline: none;
+  border: 2px solid rgb(48, 48, 48);
+}
+
+.name-form::placeholder {
+  color: rgb(95, 95, 95);
+  opacity: 1;
 }
