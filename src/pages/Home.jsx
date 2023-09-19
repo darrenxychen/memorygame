@@ -9,7 +9,9 @@ const cardImages = [
   { "src": "/img/ring-1.png", matched: false },
   { "src": "/img/scroll-1.png", matched: false },
   { "src": "/img/shield-1.png", matched: false },
-  { "src": "/img/sword-1.png", matched: false }
+  { "src": "/img/sword-1.png", matched: false },
+  { "src": "/img/axe-1.jpeg", matched: false },
+  { "src": "/img/fortnite-1.jpg", matched: false }
 ]
 
 function Home() {
@@ -103,7 +105,12 @@ function Home() {
 
       <div className="card-grid">
         {cards.map(card => (
-          <SingleCard key={card.id} card={card} handleChoice={handleChoice} flipped={card === choiceOne || card === choiceTwo || card.matched} disabled={disabled} />
+          <SingleCard
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
+            disabled={disabled} />
         ))}
       </div>
 
