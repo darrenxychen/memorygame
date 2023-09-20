@@ -1,8 +1,8 @@
 import { useEffect, useState, useRef } from 'react';
 
-export default function Timer() {
+export default function Timer({ StopTimer, isRunning }) {
   const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(true);
+  const [running, setRunning] = useState(isRunning);
   const timer = useRef();
 
   useEffect(() => {
@@ -14,6 +14,8 @@ export default function Timer() {
 
     return () => clearInterval(timer.current);
   }, [running]);
+
+
 
 
   return (

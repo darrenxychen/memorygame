@@ -55,6 +55,8 @@ function Home() {
   const [openModal, setOpenModal] = useState(false);
   const [difficulty, setDifficulty] = useState("easy");
   const [difficultyActive, setDifficultyActive] = useState(false);
+  const [isShuffling, setIsShuffling] = useState(false);
+  const [isRunning, setIsRunning] = useState(false);
 
   let gameOverTimeout;
 
@@ -73,7 +75,8 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
-
+    setIsShuffling(true);
+    setIsRunning(true);
     clearTimeout(gameOverTimeout);
 
     const shuffledCards = [...cardImages, ...cardImages]
@@ -86,6 +89,7 @@ function Home() {
     setOpenModal(false);
     setChoiceOne(null);
     setDifficultyActive(false);
+    setIsShuffling(false);
   }
 
   //handle a choice
@@ -132,6 +136,8 @@ function Home() {
       gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
         console.log('game over');
+        setIsRunning(false);
+
       }, 600);
     }
 
@@ -147,9 +153,13 @@ function Home() {
     setDisabled(false);
   }
 
+  function stopTimer(time) {
+    console.log('Timer stopped at: ', time);
+  }
+
   return (
     <div className="App">
-      <h1>Memory Game</h1>
+      <h1>The Memory Game</h1>
       {openModal && <Modal closeModal={(setOpenModal)} />}
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
       <button className='difficulty-btn' onClick={() => { setDifficulty("easy"); setDifficultyActive(true); }}>Easy</button>
@@ -158,7 +168,10 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={shuffleCards}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>current difficulty: {difficulty}</p>
-      {clickedStart && <Timer />}
+      {clickedStart && <Timer
+        stopTimer={stopTimer}
+        isRunning={isRunning}
+      />}
       <p>Turns: {turns}</p>
 
 
@@ -169,7 +182,9 @@ function Home() {
             card={card}
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
-            disabled={disabled} />
+            disabled={disabled}
+            isShuffling={isShuffling}
+          />
         ))}
       </div>
 

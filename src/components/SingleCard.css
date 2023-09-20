@@ -1,6 +1,7 @@
 .card {
   /* sits on top of the back of the card */
   position: relative;
+
 }
 
 .card img {
@@ -32,4 +33,22 @@
 .flipped .back {
   transform: rotateY(90deg);
   transition-delay: 0s;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.shuffling {
+  animation: bounce 0.5s ease;
 }
