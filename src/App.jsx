@@ -2,10 +2,11 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Leaderboard from './pages/Leaderboard';
+import Navigation from './components/Navigation';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <><Navigation /><BrowserRouter>
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -13,7 +14,7 @@ const App = () => {
           <Route path="*" element={<h1>Not Found</h1>} /> {/* 404 page */}
         </Routes>
       </div>
-    </BrowserRouter>
+    </BrowserRouter></>
 
   )
 
