@@ -1,6 +1,6 @@
 import "./Modal.css";
 
-function Modal({ closeModal }) {
+function Modal({ closeModal, turns }) {
   return (
     <div className="modal-background">
       <div className="modal-container">
@@ -13,14 +13,14 @@ function Modal({ closeModal }) {
         </div>
         <div className="body">
           <p>
-            You won in 10 turns!
+            You won in {turns} turns!
           </p>
 
         </div>
 
         <div className="footer">
           <input className="name-form" type="text" placeholder="Name" maxLength={10} />
-          <button className="submit-btn">submit</button>
+          <button className="submit-btn">Submit</button>
         </div>
       </div>
     </div>
