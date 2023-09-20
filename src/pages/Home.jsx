@@ -152,8 +152,8 @@ function Home() {
       {clickedStart && <Timer />}
       <br />
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
-      <button onClick={() => { setDifficulty("easy"); shuffleCards(); }}>Easy</button>
-      <button onClick={() => { setDifficulty("medium"); shuffleCards(); }}>Medium</button>
+      <button onClick={() => { shuffleCards(); setDifficulty("easy"); }}>Easy</button>
+      <button onClick={() => { shuffleCards(); setDifficulty("medium"); }}>Medium</button>
       <button onClick={() => { setDifficulty("hard"); shuffleCards(); }}>Hard</button>
       <button onClick={() => { setDifficulty("test"); shuffleCards(); }}>Test</button>
       <p>current difficulty: {difficulty}</p>
