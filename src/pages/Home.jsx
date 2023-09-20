@@ -32,12 +32,12 @@ const hardCards = [
   { "src": "/img/sword-1.png", matched: false },
   { "src": "/img/axe-1.jpeg", matched: false },
   { "src": "/img/fortnite-1.jpg", matched: false },
-  { "src": "/img/shirt-1.jpg", matched: false },
-  { "src": "/img/ocean-1.jpeg", matched: false }
+  { "src": "/img/beach-1.jpg", matched: false },
+  { "src": "/img/creeper-1.jpg", matched: false }
 ]
 
 const testCards = [
-  { "src": "/img/helmet-1.png", matched: false }
+  { "src": "/img/fortnite-1.png", matched: false }
 ]
 
 let cardImages = [];
