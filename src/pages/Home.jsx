@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import SingleCard from '../components/SingleCard';
 import Timer from '../components/Timer';
 import Modal from '../components/Modal';
+import './Home.css';
 
 const easyCards = [
   { "src": "/img/helmet-1.png", matched: false },
@@ -152,10 +153,10 @@ function Home() {
       {clickedStart && <Timer />}
       <br />
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
-      <button onClick={() => { shuffleCards(); setDifficulty("easy"); }}>Easy</button>
-      <button onClick={() => { shuffleCards(); setDifficulty("medium"); }}>Medium</button>
-      <button onClick={() => { setDifficulty("hard"); shuffleCards(); }}>Hard</button>
-      <button onClick={() => { setDifficulty("test"); shuffleCards(); }}>Test</button>
+      <button className='difficulty-btn' onClick={() => { shuffleCards(); setDifficulty("easy"); }}>Easy</button>
+      <button className='difficulty-btn' onClick={() => { shuffleCards(); setDifficulty("medium"); }}>Medium</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); shuffleCards(); }}>Hard</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("test"); shuffleCards(); }}>Test</button>
       <p>current difficulty: {difficulty}</p>
       <br />
 
