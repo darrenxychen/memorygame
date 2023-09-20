@@ -3,16 +3,45 @@ import SingleCard from '../components/SingleCard';
 import Timer from '../components/Timer';
 import Modal from '../components/Modal';
 
-const cardImages = [
-  { "src": "/img/helmet-1.png", matched: false }
-  // { "src": "/img/potion-1.png", matched: false },
-  // { "src": "/img/ring-1.png", matched: false },
-  // { "src": "/img/scroll-1.png", matched: false },
-  // { "src": "/img/shield-1.png", matched: false },
-  // { "src": "/img/sword-1.png", matched: false },
-  // { "src": "/img/axe-1.jpeg", matched: false },
-  // { "src": "/img/fortnite-1.jpg", matched: false }
+const easyCards = [
+  { "src": "/img/helmet-1.png", matched: false },
+  { "src": "/img/potion-1.png", matched: false },
+  { "src": "/img/ring-1.png", matched: false },
+  { "src": "/img/scroll-1.png", matched: false },
+  { "src": "/img/shield-1.png", matched: false },
+  { "src": "/img/sword-1.png", matched: false }
 ]
+
+const mediumCards = [
+  { "src": "/img/helmet-1.png", matched: false },
+  { "src": "/img/potion-1.png", matched: false },
+  { "src": "/img/ring-1.png", matched: false },
+  { "src": "/img/scroll-1.png", matched: false },
+  { "src": "/img/shield-1.png", matched: false },
+  { "src": "/img/sword-1.png", matched: false },
+  { "src": "/img/axe-1.jpeg", matched: false },
+  { "src": "/img/fortnite-1.jpg", matched: false }
+]
+
+const hardCards = [
+  { "src": "/img/helmet-1.png", matched: false },
+  { "src": "/img/potion-1.png", matched: false },
+  { "src": "/img/ring-1.png", matched: false },
+  { "src": "/img/scroll-1.png", matched: false },
+  { "src": "/img/shield-1.png", matched: false },
+  { "src": "/img/sword-1.png", matched: false },
+  { "src": "/img/axe-1.jpeg", matched: false },
+  { "src": "/img/fortnite-1.jpg", matched: false },
+  { "src": "/img/shirt-1.jpg", matched: false },
+  { "src": "/img/ocean-1.jpeg", matched: false }
+]
+
+const testCards = [
+  { "src": "/img/helmet-1.png", matched: false }
+]
+
+let cardImages = [];
+
 
 function Home() {
   const [cards, setCards] = useState([]);
@@ -23,8 +52,22 @@ function Home() {
   const [matchedCount, setMatchedCount] = useState(0);
   const [clickedStart, setClickedStart] = useState(false);
   const [openModal, setOpenModal] = useState(false);
+  const [difficulty, setDifficulty] = useState("easy");
 
   let gameOverTimeout;
+
+
+  //set the card images based on difficulty
+  if (difficulty === "easy") {
+    cardImages = easyCards;
+  } else if (difficulty === "medium") {
+    cardImages = mediumCards;
+
+  } else if (difficulty === "test") {
+    cardImages = testCards;
+  } else {
+    cardImages = hardCards;
+  }
 
   //shuffle cards
   const shuffleCards = () => {
@@ -39,6 +82,7 @@ function Home() {
     setTurns(0);
     setClickedStart(true);
     setOpenModal(false);
+    setChoiceOne(null);
   }
 
   //handle a choice
@@ -104,11 +148,17 @@ function Home() {
     <div className="App">
       <h1>Memory Game</h1>
       <p>Turns: {turns}</p>
+      {openModal && <Modal closeModal={(setOpenModal)} />}
       {clickedStart && <Timer />}
       <br />
-      <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button>
+      {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
+      <button onClick={() => setDifficulty("easy")}>Easy</button>
+      <button onClick={() => setDifficulty("medium")}>Medium</button>
+      <button onClick={() => setDifficulty("hard")}>Hard</button>
+      <button onClick={() => setDifficulty("test")}>Test</button>
+      <p>current difficulty: {difficulty}</p>
       <br />
-      {openModal && <Modal closeModal={(setOpenModal)} />}
+
       <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
