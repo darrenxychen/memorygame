@@ -57,6 +57,7 @@ function Home() {
   const [difficultyActive, setDifficultyActive] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
+  const [gameOverFlag, setGameOverFlag] = useState(false);
 
   let gameOverTimeout;
 
@@ -75,6 +76,8 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
+    setMatchedCount(0);
+    setGameOverFlag(false);
     setIsShuffling(true);
     setIsRunning(true);
     clearTimeout(gameOverTimeout);
@@ -132,7 +135,8 @@ function Home() {
 
   //check if the game is over
   useEffect(() => {
-    if (matchedCount === cardImages.length) {
+    if (matchedCount === cardImages.length && !gameOverFlag) {
+      setGameOverFlag(true);
       gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
         console.log('game over');
