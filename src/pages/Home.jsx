@@ -37,7 +37,7 @@ const hardCards = [
 ]
 
 const testCards = [
-  { "src": "/img/fortnite-1.png", matched: false }
+  { "src": "/img/fortnite-1.jpg", matched: false }
 ]
 
 let cardImages = [];
