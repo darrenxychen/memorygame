@@ -6,6 +6,5 @@
 - Add a leaderboard modal that pops up when you beat your own highscore
 
 ## Things broken
-- UseEffect for Modal runs twice after win
 - Have to fully reset timer and everything after win
-- Difficulty Levels work but when you click one it doesn't refresh the cards immediately so it stays the level before until new game is clicked
+- Animation for cards after clicking new game doesn't work
