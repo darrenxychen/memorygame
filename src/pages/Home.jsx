@@ -54,6 +54,7 @@ function Home() {
   const [clickedStart, setClickedStart] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [difficulty, setDifficulty] = useState("easy");
+  const [difficultyActive, setDifficultyActive] = useState(false);
 
   let gameOverTimeout;
 
@@ -84,6 +85,7 @@ function Home() {
     setClickedStart(true);
     setOpenModal(false);
     setChoiceOne(null);
+    setDifficultyActive(false);
   }
 
   //handle a choice
@@ -148,19 +150,17 @@ function Home() {
   return (
     <div className="App">
       <h1>Memory Game</h1>
-      <p>Turns: {turns}</p>
       {openModal && <Modal closeModal={(setOpenModal)} />}
-      {clickedStart && <Timer />}
-      <br />
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
-      <button className='difficulty-btn' onClick={() => { shuffleCards(); setDifficulty("easy"); }}>Easy</button>
-      <button className='difficulty-btn' onClick={() => { shuffleCards(); setDifficulty("medium"); }}>Medium</button>
-      <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); shuffleCards(); }}>Hard</button>
-      <button className='difficulty-btn' onClick={() => { setDifficulty("test"); shuffleCards(); }}>Test</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("easy"); setDifficultyActive(true); }}>Easy</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("medium"); setDifficultyActive(true); }}>Medium</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); setDifficultyActive(true); }}>Hard</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
+      <button className='new-game-btn' onClick={shuffleCards}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>current difficulty: {difficulty}</p>
-      <br />
+      {clickedStart && <Timer />}
+      <p>Turns: {turns}</p>
 
-      <button onClick={shuffleCards}>New Game</button>
 
       <div className="card-grid">
         {cards.map(card => (
