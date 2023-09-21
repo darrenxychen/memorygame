@@ -1,0 +1,35 @@
+.difficulty-btn {
+  background: #7600d6;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 20%;
+}
+
+.difficulty-btn:hover {
+  background: #c300ff;
+}
+
+.difficulty-btn:focus {
+  background: #c300ff;
+}
+
+.new-game-btn {
+  background: #7600d6;
+  color: white;
+  border: none;
+  border-radius: 9px;
+  padding: 10px;
+  margin: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 20%;
+}
+
+.new-game-btn:hover {
+  background: #c300ff;
+}

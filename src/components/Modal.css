@@ -1,0 +1,90 @@
+.submit-btn {
+  background: rgb(0, 243, 0);
+  color: white;
+  border: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  height: 40px;
+  width: 80px;
+  transition: ease-in-out 0.15s;
+}
+
+.submit-btn:hover {
+  background: #00c086;
+  color: white;
+}
+
+.x-btn {
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  border: none;
+  font-weight: normal;
+
+}
+
+.x-btn:hover {
+  color: rgb(180, 180, 180);
+}
+
+.modal-background {
+  width: 45%;
+  height: 50%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+}
+
+.modal-container {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: rgb(92, 92, 92);
+  box-shadow: rgba(00, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modal-container .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modal-container .body {
+  flex: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.7rem;
+
+}
+
+.modal-container .footer {
+  flex: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.name-form {
+  height: 35px;
+  width: 60%;
+  border-radius: 10px;
+  border: 2px solid rgb(95, 95, 95);
+  padding: 3px 10px;
+}
+
+.name-form:focus {
+  outline: none;
+  border: 2px solid rgb(48, 48, 48);
+}
+
+.name-form::placeholder {
+  color: rgb(95, 95, 95);
+  opacity: 1;
+}
