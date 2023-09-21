@@ -77,6 +77,8 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
+    setMatchedCount(0);
+
     clearTimeout(gameOverTimeout);
 
     const shuffledCards = [...cardImages, ...cardImages]
@@ -90,11 +92,11 @@ function Home() {
     setChoiceOne(null);
     setDifficultyActive(false);
     setIsShuffling(false);
-    setIsRunning(true);
     setTimerReset(true);
-    setMatchedCount(0);
     setGameOverFlag(false);
     setIsShuffling(true);
+    setIsRunning(false);
+    console.log(isRunning);
   }
 
   //handle a choice
@@ -139,7 +141,7 @@ function Home() {
     if (matchedCount === cardImages.length && !gameOverFlag) {
       setIsRunning(false);
       setGameOverFlag(true);
-      setTimerReset(!timerReset);
+      setTimerReset(false);
       gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
         console.log('game over');
@@ -148,8 +150,6 @@ function Home() {
 
     }
 
-    // Clear the timeout when the component unmounts or when a new game starts
-    return () => clearTimeout(gameOverTimeout);
   }, [matchedCount, turns]);
 
   // reset the choices and then increase a turn
