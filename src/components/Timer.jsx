@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 
-export default function Timer({ StopTimer, isRunning }) {
+export default function Timer({ isRunning, timerReset }) {
   const [time, setTime] = useState(0);
   const [running, setRunning] = useState(isRunning);
   const timer = useRef();
@@ -15,7 +15,16 @@ export default function Timer({ StopTimer, isRunning }) {
     return () => clearInterval(timer.current);
   }, [running]);
 
+  useEffect(() => {
+    if (timerReset) {
+      setTime(0);
+      setRunning(false);
+    } else {
+      setRunning(true);
+    }
 
+
+  }, [timerReset]);
 
 
   return (

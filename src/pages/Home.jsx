@@ -58,6 +58,7 @@ function Home() {
   const [isShuffling, setIsShuffling] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
   const [gameOverFlag, setGameOverFlag] = useState(false);
+  const [timerReset, setTimerReset] = useState(true);
 
   let gameOverTimeout;
 
@@ -76,6 +77,7 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
+    setTimerReset(!timerReset);
     setMatchedCount(0);
     setGameOverFlag(false);
     setIsShuffling(true);
@@ -140,9 +142,9 @@ function Home() {
       gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
         console.log('game over');
-        setIsRunning(false);
-
+        console.log(isRunning);
       }, 600);
+      setIsRunning(!isRunning);
     }
 
     // Clear the timeout when the component unmounts or when a new game starts
@@ -157,10 +159,6 @@ function Home() {
     setDisabled(false);
   }
 
-  function stopTimer(time) {
-    console.log('Timer stopped at: ', time);
-  }
-
   return (
     <div className="App">
       <h1>The Memory Game</h1>
@@ -171,10 +169,10 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); setDifficultyActive(true); }}>Hard</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={shuffleCards}>{difficultyActive ? 'Apply' : 'New Game'}</button>
-      <p>current difficulty: {difficulty}</p>
+      <p>Current Difficulty: {difficulty}</p>
       {clickedStart && <Timer
-        stopTimer={stopTimer}
         isRunning={isRunning}
+        timerReset={timerReset}
       />}
       <p>Turns: {turns}</p>
 
