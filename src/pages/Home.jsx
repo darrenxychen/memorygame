@@ -77,11 +77,6 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
-    setTimerReset(!timerReset);
-    setMatchedCount(0);
-    setGameOverFlag(false);
-    setIsShuffling(true);
-    setIsRunning(true);
     clearTimeout(gameOverTimeout);
 
     const shuffledCards = [...cardImages, ...cardImages]
@@ -95,6 +90,11 @@ function Home() {
     setChoiceOne(null);
     setDifficultyActive(false);
     setIsShuffling(false);
+    setIsRunning(true);
+    setTimerReset(true);
+    setMatchedCount(0);
+    setGameOverFlag(false);
+    setIsShuffling(true);
   }
 
   //handle a choice
@@ -106,7 +106,6 @@ function Home() {
 
   //compare the two selected cards
   useEffect(() => {
-
     if (choiceOne && choiceTwo) {
       setDisabled(true);
       //if the two cards match, set matched to true
@@ -138,13 +137,15 @@ function Home() {
   //check if the game is over
   useEffect(() => {
     if (matchedCount === cardImages.length && !gameOverFlag) {
+      setIsRunning(false);
       setGameOverFlag(true);
+      setTimerReset(!timerReset);
       gameOverTimeout = setTimeout(() => {
         setOpenModal(true);
         console.log('game over');
         console.log(isRunning);
       }, 600);
-      setIsRunning(!isRunning);
+
     }
 
     // Clear the timeout when the component unmounts or when a new game starts
