@@ -5,6 +5,8 @@ export default function Timer({ isRunning, timerReset }) {
   const [running, setRunning] = useState(isRunning);
   const timer = useRef();
 
+  console.log(isRunning + ' from timer.jsx');
+
   useEffect(() => {
     if (running) {
       timer.current = setInterval(() => {
@@ -18,8 +20,6 @@ export default function Timer({ isRunning, timerReset }) {
   useEffect(() => {
     if (timerReset) {
       setTime(0);
-      setRunning(false);
-    } else {
       setRunning(true);
     }
 

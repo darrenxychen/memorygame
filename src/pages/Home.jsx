@@ -56,7 +56,7 @@ function Home() {
   const [difficulty, setDifficulty] = useState("easy");
   const [difficultyActive, setDifficultyActive] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
-  const [isRunning, setIsRunning] = useState(false);
+  const [isRunning, setIsRunning] = useState(true);
   const [gameOverFlag, setGameOverFlag] = useState(false);
   const [timerReset, setTimerReset] = useState(true);
 
@@ -95,8 +95,8 @@ function Home() {
     setTimerReset(true);
     setGameOverFlag(false);
     setIsShuffling(true);
-    setIsRunning(false);
-    console.log(isRunning);
+    setIsRunning(true);
+    console.log('im running' + isRunning);
   }
 
   //handle a choice
@@ -136,10 +136,14 @@ function Home() {
     }
   }, [choiceOne, choiceTwo]);
 
+  const endGame = () => {
+    setIsRunning(false);
+  }
+
   //check if the game is over
   useEffect(() => {
     if (matchedCount === cardImages.length && !gameOverFlag) {
-      setIsRunning(false);
+      endGame();
       setGameOverFlag(true);
       setTimerReset(false);
       gameOverTimeout = setTimeout(() => {
@@ -160,6 +164,11 @@ function Home() {
     setDisabled(false);
   }
 
+  function handleClick() {
+    shuffleCards();
+    setTimerReset(false);
+  }
+
   return (
     <div className="App">
       <h1>The Memory Game</h1>
@@ -169,7 +178,7 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("medium"); setDifficultyActive(true); }}>Medium</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); setDifficultyActive(true); }}>Hard</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
-      <button className='new-game-btn' onClick={shuffleCards}>{difficultyActive ? 'Apply' : 'New Game'}</button>
+      <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>Current Difficulty: {difficulty}</p>
       {clickedStart && <Timer
         isRunning={isRunning}
