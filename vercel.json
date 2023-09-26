@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "src": "/",
+      "dest": "/"
+    },
+    {
+      "src": "/leaderboard",
+      "dest": "/pages/Leaderboard.jsx"
+    },
+    {
+      "src": "/about",
+      "dest": "/pages/About.jsx"
+    }
+  ]
+}
