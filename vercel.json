@@ -1,16 +1,16 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/"
+      "source": "/(.*)",
+      "destination": "/"
     },
     {
-      "src": "/leaderboard",
-      "dest": "/pages/Leaderboard.jsx"
+      "source": "/leaderboard",
+      "destination": "/pages/Leaderboard.jsx"
     },
     {
-      "src": "/about",
-      "dest": "/pages/About.jsx"
+      "source": "/about",
+      "destination": "/pages/About.jsx"
     }
   ]
 }
