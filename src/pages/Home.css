@@ -41,3 +41,11 @@
   font-size: 2rem;
   font-weight: bold;
 }
+
+.difficult-style {
+  font-weight: bold;
+}
+
+.green {
+  color: green;
+}

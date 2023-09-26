@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import SingleCard from '../components/SingleCard';
-import Timer from '../components/Timer';
 import Modal from '../components/Modal';
 import './Home.css';
 
@@ -53,32 +52,38 @@ function Home() {
   const [matchedCount, setMatchedCount] = useState(0);
   const [clickedStart, setClickedStart] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [difficulty, setDifficulty] = useState("easy");
+  const [difficulty, setDifficulty] = useState("Easy");
   const [difficultyActive, setDifficultyActive] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
-  const [isRunning, setIsRunning] = useState(true);
   const [gameOverFlag, setGameOverFlag] = useState(false);
-  const [timerReset, setTimerReset] = useState(true);
 
   // for the timer
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
+
+  //changing colors
+  const [color, setColor] = useState("lime");
 
 
   let gameOverTimeout;
 
 
   //set the card images based on difficulty
-  if (difficulty === "easy") {
+  if (difficulty === "Easy") {
     cardImages = easyCards;
-  } else if (difficulty === "medium") {
+
+  } else if (difficulty === "Medium") {
     cardImages = mediumCards;
 
-  } else if (difficulty === "test") {
+  } else if (difficulty === "Test") {
     cardImages = testCards;
   } else {
     cardImages = hardCards;
   }
+
+
+
+
 
   //shuffle cards
   const shuffleCards = () => {
@@ -97,11 +102,8 @@ function Home() {
     setChoiceOne(null);
     setDifficultyActive(false);
     setIsShuffling(false);
-    setTimerReset(true);
     setGameOverFlag(false);
     setIsShuffling(true);
-    setIsRunning(true);
-    console.log('im running' + isRunning);
   }
 
   //handle a choice
@@ -140,10 +142,6 @@ function Home() {
       }
     }
   }, [choiceOne, choiceTwo]);
-
-  const endGame = () => {
-    setIsRunning(false);
-  }
 
   //check if the game is over
   useEffect(() => {
@@ -209,12 +207,12 @@ function Home() {
       <h1>The Memory Game</h1>
       {openModal && <Modal closeModal={(setOpenModal)} turns={turns} time={time} />}
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
-      <button className='difficulty-btn' onClick={() => { setDifficulty("easy"); setDifficultyActive(true); }}>Easy</button>
-      <button className='difficulty-btn' onClick={() => { setDifficulty("medium"); setDifficultyActive(true); }}>Medium</button>
-      <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); setDifficultyActive(true); }}>Hard</button>
-      <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("Easy"); setDifficultyActive(true); setColor('lime') }}>Easy</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("Medium"); setDifficultyActive(true); setColor('goldenrod') }}>Medium</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("Hard"); setDifficultyActive(true); setColor('red') }}>Hard</button>
+      <button className='difficulty-btn' onClick={() => { setDifficulty("Test"); setDifficultyActive(true); setColor('purple') }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
-      <p>Turns: {turns} | Current Difficulty: {difficulty}</p>
+      <p>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
       <div className='Timer'>
         {/* minutes, seconds, then milliseconds */}
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
