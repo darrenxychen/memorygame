@@ -179,6 +179,17 @@ function Home() {
     }
   }
 
+  useEffect(() => {
+    let interval = null;
+
+    if (timerOn) {
+      interval = setInterval(() => {
+        setTime(prevTime => prevTime + 10);
+      }, 10);
+    }
+
+  }, [timerOn]);
+
   return (
     <div className="App">
       <h1>The Memory Game</h1>
