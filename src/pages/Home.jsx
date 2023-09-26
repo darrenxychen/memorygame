@@ -177,7 +177,9 @@ function Home() {
 
     const cardsSection = document.getElementById("card-section");
     if (cardsSection) {
-      cardsSection.scrollIntoView({ behavior: "smooth" });
+      const offset = 100;
+      const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
+      cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
     }
   }
 
