@@ -180,14 +180,11 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>Current Difficulty: {difficulty}</p>
-      {clickedStart && <Timer
-        isRunning={isRunning}
-        timerReset={timerReset}
-      />}
+      <span>Timer</span>
       <p>Turns: {turns}</p>
 
 
-      <div className="card-grid">
+      <div id='card-section' className="card-grid">
         {cards.map(card => (
           <SingleCard
             key={card.id}
