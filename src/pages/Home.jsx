@@ -149,9 +149,10 @@ function Home() {
   useEffect(() => {
     if (matchedCount === cardImages.length && !gameOverFlag) {
       endGame();
+
       setGameOverFlag(true);
-      setTimerReset(false);
       gameOverTimeout = setTimeout(() => {
+        setTimerOn(false);
         setOpenModal(true);
         console.log('game over');
         console.log(isRunning);
@@ -171,7 +172,8 @@ function Home() {
 
   function handleClick() {
     shuffleCards();
-    setTimerReset(false);
+    setTime(0);
+    setTimerOn(true);
 
     const cardsSection = document.getElementById("card-section");
     if (cardsSection) {
@@ -212,9 +214,9 @@ function Home() {
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
-        <br />
+        {/* <br />
         <button onClick={() => setTimerOn(true)}>start</button>
-        <button onClick={() => setTimerOn(false)}>stop</button>
+        <button onClick={() => setTimerOn(false)}>stop</button> */}
       </div>
       <p>Turns: {turns}</p>
 
