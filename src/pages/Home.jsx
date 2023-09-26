@@ -201,7 +201,7 @@ function Home() {
   return (
     <div className="App">
       <h1>The Memory Game</h1>
-      {openModal && <Modal closeModal={(setOpenModal)} turns={turns} />}
+      {openModal && <Modal closeModal={(setOpenModal)} turns={turns} time={time} />}
       {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
       <button className='difficulty-btn' onClick={() => { setDifficulty("easy"); setDifficultyActive(true); }}>Easy</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("medium"); setDifficultyActive(true); }}>Medium</button>

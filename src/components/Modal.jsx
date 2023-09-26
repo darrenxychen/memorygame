@@ -1,6 +1,6 @@
 import "./Modal.css";
 
-function Modal({ closeModal, turns }) {
+function Modal({ closeModal, turns, time }) {
   return (
     <div className="center">
       <div className="modal-background">
@@ -16,6 +16,10 @@ function Modal({ closeModal, turns }) {
             <p>
               You won in {turns} turns!
             </p>
+            <p>Your time to beat is
+              <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+              <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+              <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>!</p>
 
           </div>
 
