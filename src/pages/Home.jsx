@@ -167,6 +167,11 @@ function Home() {
   function handleClick() {
     shuffleCards();
     setTimerReset(false);
+
+    const cardsSection = document.getElementById("card-section");
+    if (cardsSection) {
+      cardsSection.scrollIntoView({ behavior: "smooth" });
+    }
   }
 
   return (
