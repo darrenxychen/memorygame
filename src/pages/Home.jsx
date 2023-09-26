@@ -173,16 +173,17 @@ function Home() {
   function handleClick() {
     shuffleCards();
     setTime(0);
-    setTimerOn(true);
+
 
     const cardsSection = document.getElementById("card-section");
     if (cardsSection) {
       const offset = 100;
       const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
-
+      // cardsSection.scrollIntoView
       setTimeout(() => {
+        setTimerOn(true);
         cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
-      }, 1);
+      }, 10);
     }
   }
 
