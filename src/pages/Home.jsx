@@ -60,6 +60,11 @@ function Home() {
   const [gameOverFlag, setGameOverFlag] = useState(false);
   const [timerReset, setTimerReset] = useState(true);
 
+  // for the timer
+  const [time, setTime] = useState(0);
+  const [timerOn, setTimerOn] = useState(false);
+
+
   let gameOverTimeout;
 
 
@@ -185,7 +190,11 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>Current Difficulty: {difficulty}</p>
-      <span>Timer</span>
+      <div>
+        <span>Timer</span>
+        <br />
+        <button onClick={() => setTimerOn(false)}>stop</button>
+      </div>
       <p>Turns: {turns}</p>
 
 
