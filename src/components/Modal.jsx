@@ -21,8 +21,8 @@ function Modal({ closeModal, turns }) {
 
           <div className="footer">
             <form formAction="../process-form.php" formMethod="post">
-              {/* <input name="name" className="name-form" type="text" placeholder="Name" maxLength={10} />
-              <button className="submit-btn">Submit</button> */}
+              <input name="name" className="name-form" type="text" placeholder="Name" maxLength={10} />
+              <button className="submit-btn">Submit</button>
             </form>
 
 
