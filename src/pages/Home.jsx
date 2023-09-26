@@ -182,7 +182,7 @@ function Home() {
       // cardsSection.scrollIntoView
       setTimeout(() => {
         setTimerOn(true);
-        cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
+        window.scrollTo({ top: targetScrollPos, behavior: "smooth" });
       }, 10);
     }
   }
