@@ -182,7 +182,7 @@ function Home() {
       // cardsSection.scrollIntoView
       setTimeout(() => {
         setTimerOn(true);
-        window.scrollTo({ top: targetScrollPos, behavior: "smooth" });
+        cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
       }, 10);
     }
   }
@@ -214,7 +214,7 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("hard"); setDifficultyActive(true); }}>Hard</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
-      <p>Current Difficulty: {difficulty}</p>
+      <p>Turns: {turns} | Current Difficulty: {difficulty}</p>
       <div className='Timer'>
         {/* minutes, seconds, then milliseconds */}
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
@@ -224,7 +224,6 @@ function Home() {
         <button onClick={() => setTimerOn(true)}>start</button>
         <button onClick={() => setTimerOn(false)}>stop</button> */}
       </div>
-      <p>Turns: {turns}</p>
 
 
       <div id='card-section' className="card-grid">
