@@ -146,14 +146,11 @@ function Home() {
   //check if the game is over
   useEffect(() => {
     if (matchedCount === cardImages.length && !gameOverFlag) {
-      endGame();
 
       setGameOverFlag(true);
       gameOverTimeout = setTimeout(() => {
         setTimerOn(false);
         setOpenModal(true);
-        console.log('game over');
-        console.log(isRunning);
       }, 600);
 
     }
