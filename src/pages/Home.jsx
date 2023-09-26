@@ -179,7 +179,10 @@ function Home() {
     if (cardsSection) {
       const offset = 100;
       const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
-      cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
+
+      setTimeout(() => {
+        cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
+      }, 1);
     }
   }
 
