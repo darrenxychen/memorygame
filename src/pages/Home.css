@@ -33,3 +33,9 @@
 .new-game-btn:hover {
   background: #c300ff;
 }
+
+.Timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

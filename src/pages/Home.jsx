@@ -179,6 +179,8 @@ function Home() {
     }
   }
 
+  // Timer
+
   useEffect(() => {
     let interval = null;
 
@@ -186,7 +188,11 @@ function Home() {
       interval = setInterval(() => {
         setTime(prevTime => prevTime + 10);
       }, 10);
+    } else {
+      clearInterval(interval);
     }
+
+    return () => clearInterval(interval);
 
   }, [timerOn]);
 
@@ -201,9 +207,13 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("test"); setDifficultyActive(true); }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p>Current Difficulty: {difficulty}</p>
-      <div>
-        <span>Timer</span>
+      <div className='Timer'>
+        {/* minutes, seconds, then milliseconds */}
+        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+        <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+        <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
         <br />
+        <button onClick={() => setTimerOn(true)}>start</button>
         <button onClick={() => setTimerOn(false)}>stop</button>
       </div>
       <p>Turns: {turns}</p>
