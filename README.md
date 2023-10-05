@@ -9,3 +9,4 @@
 
 ## Things broken
 - Username Submit
+- Mobile looks really bad
