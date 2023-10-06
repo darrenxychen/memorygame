@@ -1,5 +1,5 @@
 # Memory Game
-
+Made by Darren Chen
 ## What to work on next
 - Add themes to the cards (games [fortnite], animals, etc)
 - Add a username inputter that gets put on the leaderboard modal with timed score
@@ -9,3 +9,4 @@
 
 ## Things broken
 - Username Submit
+- Mobile looks really bad
