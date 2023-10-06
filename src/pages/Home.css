@@ -49,3 +49,21 @@
 .green {
   color: green;
 }
+
+@media only screen and (max-width: 600px) {
+  .difficulty-btn {
+    width: 30%;
+  }
+
+  .new-game-btn {
+    width: 50%;
+  }
+
+  .turn-style {
+    font-size: 1.2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+}

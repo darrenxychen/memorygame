@@ -203,21 +203,17 @@ function Home() {
     <div className="App">
       <h1>The Memory Game</h1>
       {openModal && <Modal closeModal={(setOpenModal)} turns={turns} time={time} />}
-      {/* <button className='open-modal-btn' onClick={() => { setOpenModal(true) }}>modal test</button> */}
       <button className='difficulty-btn' onClick={() => { setDifficulty("Easy"); setDifficultyActive(true); setColor('lime') }}>Easy</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("Medium"); setDifficultyActive(true); setColor('goldenrod') }}>Medium</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("Hard"); setDifficultyActive(true); setColor('red') }}>Hard</button>
       <button className='difficulty-btn' onClick={() => { setDifficulty("Test"); setDifficultyActive(true); setColor('purple') }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
-      <p>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
+      <p className='turn-style'>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
       <div className='Timer'>
         {/* minutes, seconds, then milliseconds */}
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
         <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
-        {/* <br />
-        <button onClick={() => setTimerOn(true)}>start</button>
-        <button onClick={() => setTimerOn(false)}>stop</button> */}
       </div>
 
 
