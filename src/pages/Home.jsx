@@ -108,7 +108,7 @@ function Home() {
     setTimerOn(false);
     setHasStarted(false);
 
-    const cardsSection = document.getElementById("card-section");
+    const cardsSection = document.getElementById("timer");
     if (cardsSection) {
       const offset = 100;
       const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
@@ -216,7 +216,7 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("Test"); setDifficultyActive(true); setColor('purple') }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p className='turn-style'>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
-      <div className='Timer'>
+      <div className='Timer' id='timer'>
         {/* minutes, seconds, then milliseconds */}
         <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
         <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
