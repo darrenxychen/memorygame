@@ -104,6 +104,17 @@ function Home() {
     setIsShuffling(false);
     setGameOverFlag(false);
     setIsShuffling(true);
+
+    const cardsSection = document.getElementById("card-section");
+    if (cardsSection) {
+      const offset = 100;
+      const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
+      // cardsSection.scrollIntoView
+      setTimeout(() => {
+        setTimerOn(true);
+        cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
+      }, 10);
+    }
   }
 
   //handle a choice
@@ -170,16 +181,7 @@ function Home() {
     setTime(0);
 
 
-    const cardsSection = document.getElementById("card-section");
-    if (cardsSection) {
-      const offset = 100;
-      const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
-      // cardsSection.scrollIntoView
-      setTimeout(() => {
-        setTimerOn(true);
-        cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
-      }, 10);
-    }
+
   }
 
   // Timer
