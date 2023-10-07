@@ -110,7 +110,7 @@ function Home() {
     setTimerOn(false);
     setHasStarted(false);
 
-    const cardsSection = document.getElementById("timer");
+    const cardsSection = document.getElementById("tutorial");
     if (cardsSection) {
       const offset = 100;
       const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
