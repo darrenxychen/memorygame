@@ -209,6 +209,8 @@ function Home() {
 
   }, [timerOn]);
 
+
+
   return (
     <div className="App">
       <h1>The Memory Game</h1>
