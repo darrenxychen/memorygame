@@ -89,6 +89,8 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
+    document.getElementById('tutorial').style.display = 'block';
+
     setMatchedCount(0);
 
     clearTimeout(gameOverTimeout);
@@ -129,6 +131,7 @@ function Home() {
     if (!hasStarted) {
       setHasStarted(true);
       setTimerOn(true);
+      document.getElementById('tutorial').style.display = 'none';
     }
   }
 
@@ -216,12 +219,18 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("Test"); setDifficultyActive(true); setColor('purple') }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p className='turn-style'>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
-      <div className='Timer' id='timer'>
-        {/* minutes, seconds, then milliseconds */}
-        <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
-        <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
-        <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
+      <div className='tut-timer'>
+        <h3 id='tutorial'>Click a card to start!</h3>
+        <div className='Timer' id='timer'>
+          {/* minutes, seconds, then milliseconds */}
+          <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
+          <span>{("0" + Math.floor((time / 1000) % 60)).slice(-2)}:</span>
+          <span>{("0" + ((time / 10) % 100)).slice(-2)}</span>
+        </div>
+
       </div>
+
+
 
 
       <div id='card-section' className="card-grid">

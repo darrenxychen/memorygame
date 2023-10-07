@@ -71,3 +71,9 @@
     font-size: 1.5rem;
   }
 }
+
+.tut-timer {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
