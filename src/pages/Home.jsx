@@ -50,7 +50,6 @@ function Home() {
   const [choiceTwo, setChoiceTwo] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [matchedCount, setMatchedCount] = useState(0);
-  const [clickedStart, setClickedStart] = useState(false);
   const [openModal, setOpenModal] = useState(false);
   const [difficulty, setDifficulty] = useState("Easy");
   const [difficultyActive, setDifficultyActive] = useState(false);
@@ -63,6 +62,9 @@ function Home() {
 
   //changing colors
   const [color, setColor] = useState("lime");
+
+  //starting timer when first card clicked
+  const [hasStarted, setHasStarted] = useState(false);
 
 
   let gameOverTimeout;
@@ -97,13 +99,14 @@ function Home() {
 
     setCards(shuffledCards);
     setTurns(0);
-    setClickedStart(true);
     setOpenModal(false);
     setChoiceOne(null);
     setDifficultyActive(false);
     setIsShuffling(false);
     setGameOverFlag(false);
     setIsShuffling(true);
+    setTimerOn(false);
+    setHasStarted(false);
 
     const cardsSection = document.getElementById("card-section");
     if (cardsSection) {
@@ -111,7 +114,7 @@ function Home() {
       const targetScrollPos = cardsSection.offsetTop + cardsSection.offsetHeight + offset;
       // cardsSection.scrollIntoView
       setTimeout(() => {
-        setTimerOn(true);
+
         cardsSection.scrollIntoView({ top: targetScrollPos, behavior: "smooth" });
       }, 10);
     }
@@ -122,6 +125,11 @@ function Home() {
     //if choiceOne is null, set choiceOne to card
     //else set choiceTwo to card
     choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
+
+    if (!hasStarted) {
+      setHasStarted(true);
+      setTimerOn(true);
+    }
   }
 
   //compare the two selected cards
@@ -179,9 +187,6 @@ function Home() {
   function handleClick() {
     shuffleCards();
     setTime(0);
-
-
-
   }
 
   // Timer
