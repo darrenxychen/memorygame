@@ -6,6 +6,7 @@ Made by Darren Chen
 - If you get one match incorrect it flips everything back over (hardcore mode)
 - Leaderboard in general
 - 16+ cards the cards should grow horizontally
+- Add animation to the tutorial
 
 ## Things broken
 - Username Submit
