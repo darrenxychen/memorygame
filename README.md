@@ -10,4 +10,3 @@ Made by Darren Chen
 
 ## Things broken
 - Username Submit
-- Mobile looks really bad
