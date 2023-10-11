@@ -7,6 +7,7 @@ Made by Darren Chen
 - Leaderboard in general
 - 16+ cards the cards should grow horizontally
 - Add animation to the tutorial
+- Add a distribution graph to show most user's scores
 
 ## Things broken
 - Username Submit
