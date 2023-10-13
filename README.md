@@ -1,4 +1,5 @@
 # Memory Game
+Visit the site [here](https://memorygame-d.vercel.app/)
 Made by Darren Chen
 ## What to work on next
 - Add themes to the cards (games [fortnite], animals, etc)
@@ -11,3 +12,4 @@ Made by Darren Chen
 
 ## Things broken
 - Username Submit
+
