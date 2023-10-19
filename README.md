@@ -13,3 +13,5 @@ Made by Darren Chen
 ## Things broken
 - Username Submit
 
+## If you want to clone
+- npm install in directory
