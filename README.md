@@ -1,4 +1,5 @@
 # Memory Game
+Visit the site [here](https://memorygame-d.vercel.app/)
 Made by Darren Chen
 ## What to work on next
 - Add themes to the cards (games [fortnite], animals, etc)
@@ -7,6 +8,10 @@ Made by Darren Chen
 - Leaderboard in general
 - 16+ cards the cards should grow horizontally
 - Add animation to the tutorial
+- Add a distribution graph to show most user's scores
 
 ## Things broken
 - Username Submit
+
+## If you want to clone
+- npm install in directory
