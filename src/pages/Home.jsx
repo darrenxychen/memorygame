@@ -68,7 +68,8 @@ function Home() {
   const [hasStarted, setHasStarted] = useState(false);
 
   // display
-  const [display, setDisplay] = useState('none');
+  const [on, setOn] = useState(false);
+  const [onTut, setOnTut] = useState(false);
 
 
   let gameOverTimeout;
@@ -93,8 +94,6 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
-    setDisplay('block');
-    document.getElementById('tutorial').style.display = display;
 
     setMatchedCount(0);
 
@@ -114,6 +113,8 @@ function Home() {
     setIsShuffling(true);
     setTimerOn(false);
     setHasStarted(false);
+    setOn(true);
+    setOnTut(true);
 
     const cardsSection = document.getElementById("tutorial");
     if (cardsSection) {
@@ -136,8 +137,7 @@ function Home() {
     if (!hasStarted) {
       setHasStarted(true);
       setTimerOn(true);
-      setDisplay('none');
-      document.getElementById('tutorial').style.display = display;
+      setOnTut(false);
     }
   }
 
@@ -227,8 +227,8 @@ function Home() {
       <button className='difficulty-btn' onClick={() => { setDifficulty("Test"); setDifficultyActive(true); setColor('purple') }}>Test</button>
       <button className='new-game-btn' onClick={handleClick}>{difficultyActive ? 'Apply' : 'New Game'}</button>
       <p className='turn-style'>Turns: {turns} | Current Difficulty: <span className='difficult-style' style={{ color }}>{difficulty}</span></p>
-      <div className='tut-timer'>
-        <h3 id='tutorial'>Click a card to start!</h3>
+      <div style={{ display: on ? 'block' : 'none' }} className='tut-timer'>
+        <h3 id='tutorial' style={{ display: onTut ? 'block' : 'none' }}>Click a card to start!</h3>
         <div className='Timer' id='timer'>
           {/* minutes, seconds, then milliseconds */}
           <span>{("0" + Math.floor((time / 60000) % 60)).slice(-2)}:</span>
