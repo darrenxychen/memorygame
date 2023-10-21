@@ -67,6 +67,9 @@ function Home() {
   //starting timer when first card clicked
   const [hasStarted, setHasStarted] = useState(false);
 
+  // display
+  const [display, setDisplay] = useState('none');
+
 
   let gameOverTimeout;
 
@@ -90,7 +93,8 @@ function Home() {
 
   //shuffle cards
   const shuffleCards = () => {
-    document.getElementById('tutorial').style.display = 'block';
+    setDisplay('block');
+    document.getElementById('tutorial').style.display = display;
 
     setMatchedCount(0);
 
@@ -132,7 +136,8 @@ function Home() {
     if (!hasStarted) {
       setHasStarted(true);
       setTimerOn(true);
-      document.getElementById('tutorial').style.display = 'none';
+      setDisplay('none');
+      document.getElementById('tutorial').style.display = display;
     }
   }
 
