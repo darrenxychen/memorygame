@@ -14,4 +14,10 @@ Made by Darren Chen
 - Username Submit
 
 ## If you want to clone
-- npm install in directory
+```
+npm install
+```
+in directory, then
+```
+npm run dev
+```
