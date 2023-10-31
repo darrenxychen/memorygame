@@ -8,9 +8,25 @@ function Leaderboard() {
     { id: 3, name: 'Charlie', time: '03:00', turns: 12 },
     // ... more data
   ]);
+
+  const [searchTerm, setSearchTerm] = useState('')
+
+  const filteredData = leaderboardData.filter(player =>
+    player.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div className="leaderboard">
       <h1>Leaderboard</h1>
+      <div className='search-bar'>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
+
       <table>
         <thead>
           <tr>
