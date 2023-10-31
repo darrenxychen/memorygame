@@ -1,0 +1,20 @@
+.leaderboard {
+  max-width: 600px;
+  margin: 20px auto;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #383838;
+}
