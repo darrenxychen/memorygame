@@ -7,8 +7,10 @@ import About from './pages/About';
 
 const App = () => {
   return (
-    <><Navigation /><BrowserRouter>
+    <BrowserRouter>
+      <Navigation />
       <div className="App">
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
@@ -16,7 +18,7 @@ const App = () => {
           <Route path="*" element={<h1>Not Found</h1>} /> {/* 404 page */}
         </Routes>
       </div>
-    </BrowserRouter></>
+    </BrowserRouter>
 
   )
 

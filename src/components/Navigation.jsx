@@ -1,16 +1,18 @@
 import './Navigation.css';
+import { Link } from 'react-router-dom';
 
 export default function Navigation() {
   return (
     <nav className='navigation'>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="/leaderboard">Leaderboard</a>
+          <Link to="/leaderboard">Leaderboard</Link>
         </li>
       </ul>
+
     </nav>
   )
 
