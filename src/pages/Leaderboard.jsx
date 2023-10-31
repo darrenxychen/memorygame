@@ -39,10 +39,10 @@ function Leaderboard() {
         <tbody>
           {leaderboardData.map((player, index) => (
             <tr key={player.id}>
-              <td>{index + 1}</td>
+              <td className='rank'>{index + 1}</td>
               <td>{player.name}</td>
               <td>{player.time}</td>
-              <td>{player.turns}</td>
+              <td className='turns'>{player.turns}</td>
             </tr>
           ))}
         </tbody>
