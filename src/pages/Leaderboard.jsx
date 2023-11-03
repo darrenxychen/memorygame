@@ -31,18 +31,20 @@ function Leaderboard() {
         <thead>
           <tr>
             <th>Rank</th>
-            <th>Name</th>
-            <th>Time</th>
+            <th className='name'>Name</th>
             <th>Turns</th>
+            <th>Time</th>
+
           </tr>
         </thead>
         <tbody>
           {leaderboardData.map((player, index) => (
             <tr key={player.id}>
               <td className='rank'>{index + 1}</td>
-              <td>{player.name}</td>
-              <td>{player.time}</td>
+              <td className='name'>{player.name}</td>
               <td className='turns'>{player.turns}</td>
+              <td>{player.time}</td>
+
             </tr>
           ))}
         </tbody>
