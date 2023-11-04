@@ -30,7 +30,7 @@ function Leaderboard() {
       <table>
         <thead>
           <tr>
-            <th>Rank</th>
+            <th className='rank-title'>Rank</th>
             <th className='name'>Name</th>
             <th>Turns</th>
             <th>Time</th>

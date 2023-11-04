@@ -43,6 +43,9 @@ th {
 th.rank,
 td.rank {
   width: 90px;
+  font-weight: bold;
+  color: black;
+  background-color: #ddd;
 }
 
 th.turns,
@@ -55,4 +58,9 @@ td.name {
   text-align: left;
   padding-left: 5%;
   font-weight: bold;
+}
+
+.rank-title {
+  color: black;
+  background-color: #ddd;
 }
