@@ -10,6 +10,8 @@ function Leaderboard() {
   ]);
 
   const [searchTerm, setSearchTerm] = useState('')
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 10;
 
   const filteredData = leaderboardData.filter(player =>
     player.name.toLowerCase().includes(searchTerm.toLowerCase())
