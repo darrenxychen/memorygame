@@ -64,3 +64,9 @@ td.name {
   color: black;
   background-color: #ddd;
 }
+
+.pagination {
+  display: inline-block;
+  margin-top: 20px;
+
+}

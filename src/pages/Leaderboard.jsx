@@ -17,6 +17,15 @@ function Leaderboard() {
     player.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Calculate total number of pages
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+
+  // Calculate start and end index of items on current page
+  //do this later
+
+  // Change page
+  const paginate = pageNumber => setCurrentPage(pageNumber);
+
   return (
     <div className="leaderboard">
       <h1>Leaderboard</h1>
@@ -51,7 +60,17 @@ function Leaderboard() {
           ))}
         </tbody>
       </table>
+
+      <div className='pagination'>
+        {Array.from({ length: totalPages }, (_, index) => (
+          <button key={index} onClick={() => paginate(index + 1)}>
+            {index + 1}
+          </button>
+        ))}
+      </div>
     </div>
+
+
   );
 }
 
