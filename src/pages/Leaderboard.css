@@ -70,3 +70,21 @@ td.name {
   margin-top: 20px;
 
 }
+
+.search-bar select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 8px;
+  background-color: #383838;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.search-bar select option {
+  background-color: #383838;
+  color: #fff;
+}
