@@ -23,7 +23,7 @@ function Modal({ closeModal, turns, time }) {
           </div>
 
           <div className="footer">
-            <form formAction="../process-form.php" formMethod="post">
+            <form formAction="#" formMethod="post">
               <input name="name" className="name-form" type="text" placeholder="Name" maxLength={11} />
               <button className="submit-btn">Submit</button>
             </form>
